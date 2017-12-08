@@ -86,6 +86,7 @@
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
+                        'X-DreamFactory-API-Key': 'cf84ffc8ad69d23fb0fb9e1c30487433081a980efa8bce85852a1f1847bc7e3a'
                     },
                     body: JSON.stringify(graphQLParams),
                     credentials: 'include',

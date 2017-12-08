@@ -4,12 +4,12 @@ namespace DreamFactory\Core\GraphiQL\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class GraphIQLController extends Controller
+class GraphiQLController extends Controller
 {
     public function __construct(Request $request)
     {
         $route = $request->route();
-        $defaultSchema = config('graphql.schema');
+        $defaultSchema = config('graphql.schema', 'default');
         if (is_array($route)) {
             $schema = array_get($route, '2.graphql_schema', $defaultSchema);
         } elseif (is_object($route)) {
