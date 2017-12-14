@@ -4,7 +4,7 @@
 return [
 
     'routes'     => '/graphiql/{graphql_schema?}',
-    'controller' => \DreamFactory\Core\GraphiQL\GraphiQLController::class . '@graphiql',
+    'controller' => \DreamFactory\Core\GraphiQL\Http\Controllers\GraphiQLController::class . '@graphiql',
     'middleware' => [],
     'view'       => 'graphiql::graphiql',
 
