@@ -6,11 +6,6 @@ use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
 {
-    protected function getRouter()
-    {
-        return $this->app['router'];
-    }
-
     /**
      * Bootstrap any application services.
      *
@@ -33,8 +28,7 @@ class ServiceProvider extends BaseServiceProvider
     protected function bootRouter()
     {
         if ($this->app['config']->get('graphiql.routes') && !$this->app->routesAreCached()) {
-            $router = $this->getRouter();
-            include __DIR__.'/../routes/routes.php';
+            include __DIR__ . '/../routes/routes.php';
         }
     }
 
@@ -45,15 +39,15 @@ class ServiceProvider extends BaseServiceProvider
      */
     protected function bootPublishes()
     {
-        $configPath = __DIR__.'/../config';
-        $viewsPath = __DIR__.'/../resources/views';
+        $configPath = __DIR__ . '/../config';
+        $viewsPath = __DIR__ . '/../resources/views';
 
-        $this->mergeConfigFrom($configPath.'/config.php', 'graphiql');
+        $this->mergeConfigFrom($configPath . '/config.php', 'graphiql');
 
         $this->loadViewsFrom($viewsPath, 'graphiql');
 
         $this->publishes([
-            $configPath.'/config.php' => config_path('graphiql.php'),
+            $configPath . '/config.php' => config_path('graphiql.php'),
         ], 'config');
 
         $this->publishes([
@@ -70,8 +64,8 @@ class ServiceProvider extends BaseServiceProvider
     {
         $config = $this->app['config'];
 
-            $view = $config->get('graphiql.graphiql.view', 'graphiql::graphiql');
-            $this->app['view']->composer($view, View\GraphiQLComposer::class);
+        $view = $config->get('graphiql.view', 'graphiql::graphiql');
+        $this->app['view']->composer($view, View\GraphiQLComposer::class);
     }
 
     /**

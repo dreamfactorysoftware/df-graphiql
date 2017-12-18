@@ -1,4 +1,5 @@
 <?php
+
 namespace DreamFactory\Core\GraphiQL\View;
 
 use InvalidArgumentException;
@@ -14,12 +15,6 @@ class GraphiQLComposer
             $hasRoute = false;
         }
 
-        $schema = $view->schema;
-
-        if (! empty($schema)) {
-            $view->graphqlPath = $hasRoute ? route('graphql.query', [$schema]) : url('/graphql/' . $schema);
-        } else {
-            $view->graphqlPath = $hasRoute ? route('graphql.query') : url('/graphql');
-        }
+        $view->graphqlPath = $hasRoute ? route('graphql.query') : url('/graphql');
     }
 }

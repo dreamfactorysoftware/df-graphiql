@@ -35,7 +35,6 @@ class LumenServiceProvider extends ServiceProvider
     protected function bootRouter()
     {
         if ($this->app['config']->get('graphiql.routes')) {
-            $router = $this->getRouter();
             include __DIR__.'/../routes/routes.php';
         }
     }
