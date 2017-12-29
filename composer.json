@@ -6,9 +6,14 @@
         {
             "name": "Lee Hicks",
             "email": "leehicks@dreamfactory.com",
-            "homepage": "http://dreamfactory.com"
         }
     ],
+    "support":     {
+        "email":  "dspsupport@dreamfactory.com",
+        "source": "https://github.com/dreamfactorysoftware/df-graphiql",
+        "issues": "https://github.com/dreamfactorysoftware/df-graphiql/issues",
+        "wiki":   "https://wiki.dreamfactory.com"
+    },
     "license": "MIT",
     "type": "project",
     "require": {
